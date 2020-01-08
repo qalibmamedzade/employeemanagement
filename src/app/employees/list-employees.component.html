@@ -1,0 +1,9 @@
+<div class="form-group">
+  <input type="text" class="form-control" placeholder="Search by name" style="width: 250px" [(ngModel)]="searchTerm" >
+</div>
+<h1 #h1Variable></h1>
+<div *ngFor="let employee of employees | employeeFilter:searchTerm">
+  <div (click)="h1Variable.innerHTML = childComponent.getEmpNameAndGender()">
+    <app-display-employee [employee]="employee" #childComponent></app-display-employee>
+  </div>
+</div>
